@@ -23,7 +23,7 @@ const Pokedex = (props) => {
       backgroundColor: "#D4D4D4",
       border: "1px solid #A4A4A4",
       margin: 20,
-      height: 200,
+      height: 225,
       width: "40%",
     },
     rightContainer: {
@@ -41,6 +41,10 @@ const Pokedex = (props) => {
     },
     buttonSpacing: {
       marginTop: 10,
+    },
+    error: {
+      color: "red",
+      margin: 10,
     },
   };
 
@@ -60,7 +64,6 @@ const Pokedex = (props) => {
       .catch((err) => {
         console.log(err);
         setError("No Results");
-        setPokemon("");
       });
   };
 
@@ -80,7 +83,7 @@ const Pokedex = (props) => {
         >
           Search
         </button>
-        {error && <p>{error}</p>}
+        {error && <p style={styles.error}>{error}</p>}
       </div>
       {pokemon && (
         <div style={styles.rightContainer}>
